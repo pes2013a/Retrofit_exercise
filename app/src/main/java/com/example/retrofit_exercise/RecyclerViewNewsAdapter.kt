@@ -1,6 +1,5 @@
 package com.example.retrofit_exercise
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +7,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerViewNewsAdapter(private val dataSet: List<Article>) : RecyclerView.Adapter<RecyclerViewNewsAdapter.ViewHolder>() {
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val textViewTitle:TextView
-        val textViewDescription:TextView
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val textViewTitle: TextView
+        val textViewDescription: TextView
 
-        init{
+        init {
             textViewTitle = view.findViewById(R.id.title)
             textViewDescription = view.findViewById(R.id.description)
         }
@@ -30,7 +29,7 @@ class RecyclerViewNewsAdapter(private val dataSet: List<Article>) : RecyclerView
         holder.textViewDescription.text = dataSet[position].description
     }
 
-    override fun getItemCount()=dataSet.size
+    override fun getItemCount() = dataSet.size
 
 
 }

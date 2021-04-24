@@ -1,13 +1,12 @@
 package com.example.retrofit_exercise
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.*
+import retrofit2.converter.gson.GsonConverterFactory
 
 const val url = "https://newsapi.org/v2/"
 const val apiKey = "3cc6b034a31c416ea1a8f7b7d74065f8"
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerViewNews = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerViewNews.setHasFixedSize(true)
-        recyclerViewNews.layoutManager= LinearLayoutManager(this)
+        recyclerViewNews.layoutManager = LinearLayoutManager(this)
 
         call.enqueue(
                 object :
@@ -37,10 +36,11 @@ class MainActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<News>, response: Response<News>) {
                         if (response.isSuccessful) {
                             val recyclerViewNewsAdapter = RecyclerViewNewsAdapter(response.body()!!.articles)
-                            recyclerViewNews.adapter=recyclerViewNewsAdapter
+                            recyclerViewNews.adapter = recyclerViewNewsAdapter
                         }
                     }
-                    override fun onFailure(call: Call<News>, t: Throwable) = print( t.message)
+
+                    override fun onFailure(call: Call<News>, t: Throwable) = print(t.message)
                 },
         )
 
